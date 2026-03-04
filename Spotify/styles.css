@@ -1,0 +1,194 @@
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    background: #121212;
+    color: white;
+}
+
+
+/* Top Navigation */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    background-color: black;
+    padding: 15px 30px;
+}
+
+.logo {
+    color: #1db954;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.menu li {
+    color: #b3b3b3;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    color: white;
+}
+
+
+/* Layout */
+
+.layout {
+    display: flex;
+    height: calc(100vh - 140px);
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    width: 220px;
+    background: black;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    color: #b3b3b3;
+    cursor: pointer;
+}
+
+.sidebar li:hover {
+    color: white;
+}
+
+
+/* Main */
+
+.main {
+    flex: 1;
+    padding: 30px;
+    overflow: auto;
+}
+
+.main h1 {
+    margin-bottom: 20px;
+}
+
+
+/* Quick Cards */
+
+.cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: linear-gradient(135deg, #1db954, #191414);
+    padding: 20px;
+    border-radius: 8px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+/* Albums */
+
+.albums {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.album {
+    width: 200px;
+    background: #181818;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.album img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.album p {
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.album:hover {
+    background: #282828;
+}
+
+
+/* Player */
+
+.player {
+    height: 80px;
+    background: #181818;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.song {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.song img{
+    width:60px;
+    height:60px;
+    border-radius:6px;
+    object-fit:cover;
+}
+.song span {
+    font-size: 13px;
+    color: #b3b3b3;
+}
+
+
+.controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.play {
+    background: white;
+    color: black;
+    border-radius: 50%;
+    padding: 8px 12px;
+}
+
+.volume input {
+    width: 120px;
+}
