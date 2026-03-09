@@ -108,7 +108,7 @@ body {
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: rotate(2deg);
 }
 
 
@@ -127,6 +127,7 @@ body {
     padding: 15px;
     border-radius: 10px;
     cursor: pointer;
+    
 }
 
 .album img {
@@ -141,7 +142,7 @@ body {
 }
 
 .album:hover {
-    background: #282828;
+    background: gold;
 }
 
 
@@ -191,4 +192,40 @@ body {
 
 .volume input {
     width: 120px;
+}
+
+
+/* Liked Songs Table */
+
+.songs-table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+.songs-table th,
+.songs-table td{
+padding:12px;
+text-align:left;
+border-bottom:1px solid #333;
+}
+
+.songs-table th{
+color:#b3b3b3;
+font-weight:normal;
+}
+
+.songs-table tr:hover{
+background:#1f1f1f;
+cursor:pointer;
+}
+
+
+.sidebar a{
+text-decoration:none;
+color:#b3b3b3;
+}
+
+.sidebar a:hover{
+color:white;
 }
