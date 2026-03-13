@@ -44,16 +44,6 @@ body {
     color: white;
 }
 
-.profile a{
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-}
-
-.profile a:hover{
-    color:#1db954;
-}
-
 
 /* Layout */
 
