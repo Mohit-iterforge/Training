@@ -1,0 +1,98 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+background:#1c1c1c;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+/* Login Box */
+
+.login-container{
+background:#111;
+padding:40px;
+border-radius:10px;
+width:380px;
+text-align:center;
+position:relative;
+}
+
+
+.login-container::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:00%;
+height:4px;
+background:#1db954;
+border-radius:10px 10px 0 0;
+}
+
+/* Heading */
+
+.login-container h2{
+margin-bottom:20px;
+}
+
+/* Inputs */
+
+.login-container input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid transparent;
+border-radius:6px;
+background:#2a2a2a;
+color:white;
+outline:none;
+transition:0.3s;
+}
+
+/* Focus effect */
+
+.login-container input:focus{
+border:1px solid #1db954;
+background:#333;
+}
+
+/* Invalid input */
+
+.login-container input:invalid{
+border:1px solid #ff4d4d;
+}
+
+
+
+.login-container input:invalid::after{
+content:"Invalid input";
+color:#ff4d4d;
+}
+
+/* Button */
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+border:none;
+border-radius:20px;
+background:#1db954;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+/* Hover */
+
+button:hover{
+background:#1ed760;
+}
