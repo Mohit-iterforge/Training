@@ -1,0 +1,106 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    max-width:1394px;
+    margin:auto;
+}
+
+/* ==== Logo ===== */
+
+.brandLogo{
+    height:122px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.brandLogo img{
+    height:100%;
+    width:auto;
+}
+
+/* ==== Navigation =====*/
+
+.top-bar{
+    height:51px;
+    background:#F16E00;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.nav-menu{
+    display:flex;
+    gap:60px;
+}
+
+.nav-menu a{
+    color:#ffffff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+}
+
+/* ==== Hero Section ==== */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    
+    background:#f7efe7;
+    background-image:url("https://s7media.vitaminshoppe.com/is/image/VitaminShoppe/TRT-WHRx-766493_HeaderDesktop-1?$WHRX_TRT_SplitLeft_Desktop$");
+    background-repeat:no-repeat;
+    background-size:contain;
+}
+
+.hero-text{
+    max-width:600px;
+    margin-left: 70px;
+    margin-bottom: 90px;
+}
+
+.hero-text h1{
+    color:#012169;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    color:#012169;
+    line-height:1.6;
+    margin-bottom:20px;
+    font-family: lato bold;
+    font-weight: 800;
+}
+
+
+.hero-text ul{
+    margin-top:10px;
+}
+
+.hero-text li{
+    list-style:none;
+    margin-bottom:14px;
+    color:#012169;
+
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.hero-text li::before{
+    content:"";
+    width:20px;
+    height:20px;
+    min-width:20px;
+    background-image:url("https://vitaminshoppe.a.bigcontent.io/v1/static/WHRXCheckMarkHeaderDesktop");
+    background-size:contain;
+    background-repeat:no-repeat;
+    margin-top:3px;
+}
