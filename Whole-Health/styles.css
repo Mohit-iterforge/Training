@@ -557,5 +557,7 @@ body{
         width:100%;
         height:auto;
     }
-
+}
+.mobile-img{
+    display: none;
 }
