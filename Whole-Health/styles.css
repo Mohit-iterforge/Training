@@ -425,3 +425,137 @@ body{
     line-height:1.6;
     margin-bottom:15px;
 }
+
+
+/* ====== MOBILE  ==== */
+
+@media (max-width: 768px){
+*{
+    max-width: 100%;
+}
+    .brandLogo{
+        height:auto;
+        padding:15px 0;
+    }
+
+    .brandLogo img{
+        width:220px;   
+        height:auto;
+    }
+    .top-bar{
+        height:auto;
+        padding:10px 0;
+    }
+
+    .nav-menu{
+        flex-direction:column;  
+        gap:10px;
+        width:100%;
+        text-align:center;
+    }
+
+    .nav-menu a{
+        display:block;
+        padding:8px 0;
+        border-bottom:1px solid rgba(255,255,255,0.3);
+    }
+
+    .hero{
+        flex-direction:column;   
+        background-size:cover;
+        background-image: url(https://s7media.vitaminshoppe.com/is/image/VitaminShoppe/TRT-WHRx-766493_HeaderMobile_top?$WHRX_TRT_SplitLeft_Mobile$);
+    }
+
+    .hero-text{
+        margin-left: 70PX;
+        max-width:100%;
+        padding:0 10px;
+    }
+
+    .hero-text h1{
+        font-size:28px; 
+        justify-content: center;
+        display: flex;
+    }
+
+    .hero-text p{
+        font-size:14px;
+    }
+
+    .hero-image{
+        width:100%;
+        margin-top:20px;
+    }
+
+    .hero-image img{
+        width:100%;
+        height:auto;
+        display:block;
+    }
+}
+
+@media (max-width: 768px){
+    .steps{
+        flex-direction: column;
+        align-items: center;
+    }
+    .arrow{
+        display: none;
+    }
+}
+
+
+/* About the treatment */
+@media (max-width: 768px){
+
+    .about{
+        padding:30px 20px;
+    }
+
+    .about-content{
+        flex-direction:column;
+    }
+
+    .content{
+        order:1;
+    }
+
+    .card{
+        order:2;
+        width:100%;
+        margin-top:20px;
+    }
+
+    .about-title{
+        font-size:24px;
+    }
+
+    .about-subtitle{
+        font-size:14px;
+        margin-bottom:20px;
+    }
+
+    .content p{
+        font-size:14px;
+    }
+
+    .feature{
+        width:100%;
+    }
+
+    .cta{
+        width:100%;
+        text-align:center;
+    }
+
+    .desktop-img{
+        display:none;
+    }
+
+    .mobile-img{
+        display:block;
+        width:100%;
+        height:auto;
+    }
+
+}
