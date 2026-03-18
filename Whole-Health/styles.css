@@ -369,3 +369,59 @@ body{
     margin-top: 10px;
     font-size: 18px;
 }
+
+
+/* Important safety information */
+.safety{
+    background:#e6d3bf;
+    padding:60px 80px;
+    text-align:center;
+}
+
+.safety-title{
+    font-size:30px;
+    color:#012269;
+    margin-bottom:20px;
+}
+
+.safety-text{
+    max-width:900px;
+    margin:0 auto 50px;
+    color:#333;
+    line-height:1.6;
+}
+
+.safety-text a{
+    color:#0458AD;
+    text-decoration:none;
+}
+
+.safety-cards{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.safety-card{
+    background:#f5f5f5;
+    padding:25px;
+    border-radius:10px;
+    flex:1;
+    max-width:350px;
+    text-align:left;
+}
+
+.icon-placeholder{
+    width:70px;
+    height:70px;
+    background:#f16e00;
+    border-radius:50%;
+    margin:-60px auto 20px; 
+}
+
+.safety-card p{
+    color:#012169;
+    font-size:16px;
+    line-height:1.6;
+    margin-bottom:15px;
+}
