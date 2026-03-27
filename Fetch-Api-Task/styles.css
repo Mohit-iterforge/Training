@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans - serif;
+    padding: 20px;
+}
+
+h1 {
+    margin-left: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 20px;
+    background: #fff;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Pagination */
+#pagination {
+    margin: 20px;
+}
+
+button {
+    padding: 6px 12px;
+    margin: 3px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #007bff;
+    color: white;
+}
+
+button:disabled {
+    background: #eee;
+    cursor: not - allowed;
+}
