@@ -92,36 +92,8 @@
                 Register
             </button>
         </form>
-
     </div>
-
     <!-- Script -->
     <script type="module" src="./js/auth.js"></script>
-
-    <!-- Tab Switch Script -->
-    <script>
-        const loginBtn = document.getElementById("loginTabButton");
-        const registerBtn = document.getElementById("registerTabButton");
-        const loginForm = document.getElementById("loginForm");
-        const registerForm = document.getElementById("registerForm");
-
-        loginBtn.addEventListener("click", () => {
-            loginForm.classList.remove("hidden");
-            registerForm.classList.add("hidden");
-
-            loginBtn.classList.add("bg-indigo-500", "text-white");
-            registerBtn.classList.remove("bg-indigo-500", "text-white");
-            registerBtn.classList.add("text-slate-400");
-        });
-
-        registerBtn.addEventListener("click", () => {
-            registerForm.classList.remove("hidden");
-            loginForm.classList.add("hidden");
-
-            registerBtn.classList.add("bg-indigo-500", "text-white");
-            loginBtn.classList.remove("bg-indigo-500", "text-white");
-            loginBtn.classList.add("text-slate-400");
-        });
-    </script>
 </body>
 </html>
