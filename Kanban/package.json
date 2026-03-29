@@ -1,0 +1,18 @@
+{
+  "name": "kanban",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:api": "json-server --watch db.json --port 3000",
+    "start:web": "npx serve src -l 5500"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}
