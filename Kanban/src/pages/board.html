@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-slate-100 p-6">
+    <div class="mx-auto max-w-7xl rounded-2xl bg-white p-8 shadow">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 class="text-3xl font-bold">Kanban Board</h1>
+          <p id="boardWelcomeMessage" class="mt-2 text-slate-600"></p>
+        </div>
+
+        <button id="logoutButton" class="rounded-xl bg-slate-900 px-4 py-3 font-semibold text-white">
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="../js/board.js"></script>
+  </body>
+</html>
