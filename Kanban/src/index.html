@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KanFlow | Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-[#0f172a] flex items-center justify-center">
+
+    <div class="w-full max-w-md rounded-2xl bg-[#111827] p-8 shadow-2xl">
+
+        <!-- Title -->
+        <div class="mb-6 text-center">
+            <h1 class="text-3xl font-bold text-white">
+                <span class="text-indigo-500">Kan</span>Flow
+            </h1>
+            <p class="mt-2 text-sm text-slate-400">
+                Manage your tasks, your way.
+            </p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="mb-6 flex rounded-xl bg-black p-1">
+            <button id="loginTabButton"
+                class="flex-1 rounded-lg bg-indigo-500 px-4 py-2 text-sm font-semibold text-white">
+                Login
+            </button>
+            <button id="registerTabButton"
+                class="flex-1 rounded-lg px-4 py-2 text-sm font-semibold text-slate-400">
+                Register
+            </button>
+        </div>
+
+        <!-- Global Message -->
+        <p id="globalMessage" class="mb-4 hidden rounded-lg px-4 py-3 text-sm"></p>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="space-y-4">
+            <div>
+                <label class="text-xs text-slate-400">EMAIL</label>
+                <input id="loginEmail" type="email" placeholder="you@example.com" required
+                    class="mt-1 w-full rounded-lg bg-black px-4 py-3 text-white outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div>
+                <label class="text-xs text-slate-400">PASSWORD</label>
+                <input id="loginPassword" type="password" placeholder="••••••••" required
+                    class="mt-1 w-full rounded-lg bg-black px-4 py-3 text-white outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <button type="submit"
+                class="w-full rounded-lg bg-indigo-500 py-3 font-semibold text-white hover:bg-indigo-600">
+                Sign In
+            </button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" class="hidden space-y-4">
+            <div>
+                <label class="text-xs text-slate-400">FULL NAME</label>
+                <input id="registerName" type="text" placeholder="Enter full name" required
+                    class="mt-1 w-full rounded-lg bg-black px-4 py-3 text-white outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div>
+                <label class="text-xs text-slate-400">EMAIL</label>
+                <input id="registerEmail" type="email" placeholder="Enter email" required
+                    class="mt-1 w-full rounded-lg bg-black px-4 py-3 text-white outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div>
+                <label class="text-xs text-slate-400">PASSWORD</label>
+                <input id="registerPassword" type="password" placeholder="Create password" required
+                    class="mt-1 w-full rounded-lg bg-black px-4 py-3 text-white outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div>
+                <label class="text-xs text-slate-400">ROLE</label>
+                <select id="registerRole" required
+                    class="mt-1 w-full rounded-lg bg-black px-4 py-3 text-white outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="">Select role</option>
+                    <option value="User">User</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+
+            <button type="submit"
+                class="w-full rounded-lg bg-indigo-500 py-3 font-semibold text-white hover:bg-indigo-600">
+                Register
+            </button>
+        </form>
+    </div>
+    <!-- Script -->
+    <script type="module" src="./js/auth.js"></script>
+</body>
+</html>

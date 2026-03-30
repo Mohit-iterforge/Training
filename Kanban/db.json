@@ -20,9 +20,64 @@
       "email": "alice.johnson@example.com",
       "password": "User@123",
       "role": "User"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "name": "mohit",
+      "email": "mohit@gmail.com",
+      "password": "Mohit@123",
+      "role": "User"
+    },
+    {
+      "userId": 5,
+      "name": "dummy",
+      "email": "dummy@gmail.com",
+      "password": "Password2!",
+      "role": "User",
+      "id": 5
+    },
+    {
+      "userId": 6,
+      "name": "mohit1",
+      "email": "mohit1@gmail.com",
+      "password": "Mohit@1234",
+      "role": "User",
+      "id": 6
+    },
+    {
+      "userId": 7,
+      "name": "admin",
+      "email": "admin1@gmail.com",
+      "password": "Password1@",
+      "role": "Admin",
+      "id": 7
+    },
+    {
+      "userId": 8,
+      "name": "register",
+      "email": "Register@gmail.com",
+      "password": "Password1!",
+      "role": "User",
+      "id": 8
+    },
+    {
+      "userId": 9,
+      "name": "dummy user",
+      "email": "dummy2@gmail.com",
+      "password": "Password@123",
+      "role": "User",
+      "id": 9
+    },
+    {
+      "userId": 10,
+      "name": "testing",
+      "email": "testing@gmail.com",
+      "password": "Password@13",
+      "role": "User",
+      "id": 10
     }
   ],
-
   "tasks": [
     {
       "taskId": 1,
