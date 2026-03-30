@@ -5,7 +5,7 @@ const requestCache = new Map();
 /**
  * Builds a request URL with query parameters.
  *
- * @param {string} endpoint - API endpoint such as '/users'.
+ * @param {string} endpoint - API endpoint such as '/tasks'.
  * @param {Record<string, string | number | boolean | undefined>} [queryParams={}] - Query parameters appended to the URL.
  * @returns {string} Fully qualified request URL.
  */
@@ -22,12 +22,12 @@ export function buildApiUrl(endpoint, queryParams = {}) {
 }
 
 /**
- * Performs a GET request with simple in-memory caching to reduce duplicate API calls.
+ * Performs a GET request with simple in-memory caching.
  *
  * @template T
- * @param {string} endpoint - API endpoint such as '/users'.
- * @param {Record<string, string | number | boolean | undefined>} [queryParams={}] - Query parameters used for filtering.
- * @param {boolean} [forceRefresh=false] - When true, bypasses the cache.
+ * @param {string} endpoint - API endpoint.
+ * @param {Record<string, string | number | boolean | undefined>} [queryParams={}] - Query parameters.
+ * @param {boolean} [forceRefresh=false] - When true, bypasses cache.
  * @returns {Promise<T>} Parsed JSON response.
  */
 export async function getJson(endpoint, queryParams = {}, forceRefresh = false) {
@@ -40,7 +40,8 @@ export async function getJson(endpoint, queryParams = {}, forceRefresh = false) 
   const response = await fetch(requestUrl);
 
   if (!response.ok) {
-    throw new Error(`GET ${endpoint} failed with status ${response.status}`);
+    const errorText = await response.text();
+    throw new Error(`GET ${endpoint} failed: ${response.status} ${errorText}`);
   }
 
   const data = await response.json();
@@ -49,10 +50,10 @@ export async function getJson(endpoint, queryParams = {}, forceRefresh = false) 
 }
 
 /**
- * Performs a POST request and clears the request cache so later reads stay fresh.
+ * Performs a POST request and clears cache.
  *
  * @template T
- * @param {string} endpoint - API endpoint such as '/users'.
+ * @param {string} endpoint - API endpoint.
  * @param {Record<string, unknown>} payload - Request body payload.
  * @returns {Promise<T>} Parsed JSON response.
  */
@@ -66,9 +67,57 @@ export async function postJson(endpoint, payload) {
   });
 
   if (!response.ok) {
-    throw new Error(`POST ${endpoint} failed with status ${response.status}`);
+    const errorText = await response.text();
+    throw new Error(`POST ${endpoint} failed: ${response.status} ${errorText}`);
+  }
+
+  const data = await response.json();
+  requestCache.clear();
+  return data;
+}
+
+/**
+ * Performs a PATCH request and clears cache.
+ *
+ * @template T
+ * @param {string} endpoint - API endpoint such as '/tasks/1'.
+ * @param {Record<string, unknown>} payload - Partial update payload.
+ * @returns {Promise<T>} Parsed JSON response.
+ */
+export async function patchJson(endpoint, payload) {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`PATCH ${endpoint} failed: ${response.status} ${errorText}`);
+  }
+
+  const data = await response.json();
+  requestCache.clear();
+  return data;
+}
+
+/**
+ * Performs a DELETE request and clears cache.
+ *
+ * @param {string} endpoint - API endpoint such as '/tasks/1'.
+ * @returns {Promise<void>}
+ */
+export async function deleteJson(endpoint) {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    method: 'DELETE'
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`DELETE ${endpoint} failed: ${response.status} ${errorText}`);
   }
 
   requestCache.clear();
-  return response.json();
 }

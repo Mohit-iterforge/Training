@@ -101,9 +101,52 @@
       "description": "Revamp the company website with new design",
       "assignedTo": 1,
       "status": "done"
+    },
+    {
+      "id": 4,
+      "taskId": 4,
+      "title": "dummy",
+      "description": "dummy",
+      "assignedTo": 2,
+      "projectId": 1,
+      "status": "todo",
+      "createdAt": "2026-03-29T20:53:10.010Z",
+      "updatedAt": "2026-03-29T20:53:24.411Z"
+    },
+    {
+      "id": 5,
+      "taskId": 5,
+      "title": "nwiubwiub",
+      "description": "bbsibaibiu",
+      "assignedTo": 4,
+      "projectId": 1,
+      "status": "inProgress",
+      "createdAt": "2026-03-30T05:16:48.199Z",
+      "updatedAt": "2026-03-30T05:16:54.982Z"
+    },
+    {
+      "id": 6,
+      "taskId": 6,
+      "title": "eyveuyv",
+      "description": "bhaegfuygqy",
+      "assignedTo": 4,
+      "projectId": 1,
+      "status": "done",
+      "createdAt": "2026-03-30T06:03:17.770Z",
+      "updatedAt": "2026-03-30T06:03:52.842Z"
+    },
+    {
+      "id": 7,
+      "taskId": 7,
+      "title": "fkjbfkjb",
+      "description": "kjbkjbrf3kj",
+      "assignedTo": 2,
+      "projectId": 1,
+      "status": "inProgress",
+      "createdAt": "2026-03-30T06:32:19.905Z",
+      "updatedAt": "2026-03-30T06:32:57.669Z"
     }
   ],
-
   "projects": [
     {
       "projectId": 1,
