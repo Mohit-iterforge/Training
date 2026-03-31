@@ -153,7 +153,7 @@ function createTaskCard(task) {
       <button
         type="button"
         data-action="edit"
-        data-task-id="${task.id}"
+        data-id="${task.id}"
         class="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-blue-700"
       >
         Edit
@@ -162,7 +162,7 @@ function createTaskCard(task) {
       <button
         type="button"
         data-action="delete"
-        data-task-id="${task.id}"
+        data-id="${task.id}"
         class="rounded-lg bg-red-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-red-700"
       >
         Delete
@@ -328,7 +328,7 @@ function closeTaskModal() {
  */
 async function getNextTaskId() {
   const tasks = await getJson('/tasks', {}, true);
-  const maxTaskId = tasks.reduce((maximum, task) => Math.max(maximum, Number(task.taskId || 0)), 0);
+  const maxTaskId = tasks.reduce((maximum, task) => Math.max(maximum, Number(task.id || 0)), 0);
   return maxTaskId + 1;
 }
 
@@ -422,8 +422,8 @@ async function handleTaskFormSubmit(event) {
       const nextTaskId = await getNextTaskId();
 
       await postJson('/tasks', {
-        id: nextTaskId,
-        taskId: nextTaskId,
+        // id: nextTaskId,
+        // id: nextTaskId,
         title,
         description,
         assignedTo: Number(assignedTo),
@@ -457,8 +457,8 @@ async function handleBoardClick(event) {
   }
 
   const action = clickedButton.dataset.action;
-  const taskId = clickedButton.dataset.taskId;
-  const selectedTask = allTasks.find((task) => String(task.id) === String(taskId));
+  const id = clickedButton.dataset.id;
+  const selectedTask = allTasks.find((task) => String(task.id) === String(id));
 
   if (!selectedTask) {
     showBoardMessage('Task not found.', 'error');
