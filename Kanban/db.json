@@ -1,146 +1,27 @@
 {
   "users": [
     {
-      "userId": 2,
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com",
-      "password": "User@123",
-      "role": "User"
-    },
-    {
-      "userId": 3,
-      "name": "Alice Johnson",
-      "email": "alice.johnson@example.com",
-      "password": "User@123",
-      "role": "User"
-    },
-    {
-      "id": 4,
-      "userId": 4,
-      "name": "mohit",
-      "email": "mohit@gmail.com",
-      "password": "Mohit@123",
-      "role": "User"
-    },
-    {
-      "userId": 5,
-      "name": "dummy",
-      "email": "dummy@gmail.com",
-      "password": "Password2!",
-      "role": "User",
-      "id": 5
-    },
-    {
-      "userId": 6,
-      "name": "mohit1",
-      "email": "mohit1@gmail.com",
-      "password": "Mohit@1234",
-      "role": "User",
-      "id": 6
-    },
-    {
-      "userId": 7,
-      "name": "admin",
-      "email": "admin1@gmail.com",
-      "password": "Password1@",
-      "role": "Admin",
-      "id": 7
-    },
-    {
-      "userId": 10,
-      "name": "dummy1",
-      "email": "dummy3@gmail.com",
-      "password": "Mohit@123",
-      "role": "Admin",
-      "id": 10
-    },
-    {
-      "userId": 11,
-      "name": "test1",
-      "email": "test@gmail.com",
+      "id": 1,
+      "name": "dummy user",
+      "email": "dummy2@gmail.com",
       "password": "Password@123",
-      "role": "Admin",
-      "id": 11
-    },
-    {
-      "userId": 12,
-      "name": "testing",
-      "email": "testing@gmail.com",
-      "password": "Password@123",
-      "role": "Admin"
+      "role": "User"
     }
   ],
   "tasks": [
     {
+      "id": 1,
       "taskId": 1,
       "title": "Complete project report",
       "description": "Finish the final report for the project",
       "assignedTo": 1,
       "projectId": 1,
       "status": "inProgress"
-    },
-    {
-      "taskId": 2,
-      "title": "Prepare presentation",
-      "description": "Create slides for the upcoming presentation",
-      "assignedTo": 2,
-      "projectId": 1,
-      "status": "todo"
-    },
-    {
-      "taskId": 3,
-      "title": "Update website",
-      "description": "Revamp the company website with new design",
-      "assignedTo": 1,
-      "status": "done"
-    },
-    {
-      "id": 4,
-      "taskId": 4,
-      "title": "dummy",
-      "description": "dummy",
-      "assignedTo": 2,
-      "projectId": 1,
-      "status": "todo",
-      "createdAt": "2026-03-29T20:53:10.010Z",
-      "updatedAt": "2026-03-29T20:53:24.411Z"
-    },
-    {
-      "id": 5,
-      "taskId": 5,
-      "title": "nwiubwiub",
-      "description": "bbsibaibiu",
-      "assignedTo": 4,
-      "projectId": 1,
-      "status": "inProgress",
-      "createdAt": "2026-03-30T05:16:48.199Z",
-      "updatedAt": "2026-03-30T05:16:54.982Z"
-    },
-    {
-      "id": 6,
-      "taskId": 6,
-      "title": "eyveuyv",
-      "description": "bhaegfuygqy",
-      "assignedTo": 4,
-      "projectId": 1,
-      "status": "done",
-      "createdAt": "2026-03-30T06:03:17.770Z",
-      "updatedAt": "2026-03-30T06:03:52.842Z"
-    },
-    {
-      "id": 7,
-      "taskId": 7,
-      "title": "fkjbfkjb",
-      "description": "kjbkjbrf3kj",
-      "assignedTo": 2,
-      "projectId": 1,
-      "status": "inProgress",
-      "createdAt": "2026-03-30T06:32:19.905Z",
-      "updatedAt": "2026-03-30T06:32:57.669Z"
     }
   ],
   "projects": [
     {
+      "id": 1,
       "projectId": 1,
       "name": "Website Redesign",
       "description": "Revamp company website",

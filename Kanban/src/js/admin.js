@@ -80,15 +80,15 @@ function renderUsers() {
     row.className = 'bg-slate-50';
 
     row.innerHTML = `
-      <td class="px-4 py-4">${user.userId}</td>
+      <td class="px-4 py-4">${user.id}</td>
       <td class="px-4 py-4">${user.name}</td>
       <td class="px-4 py-4">${user.email}</td>
       <td class="px-4 py-4">
         <span>${user.role}</span>
       </td>
       <td class="px-4 py-4">
-        <button data-action="edit" data-user-id="${user.userId}" class="bg-blue-600 px-3 py-2">Edit</button>
-        <button data-action="delete" data-user-id="${user.userId}" class="bg-red-600 px-3 py-2">Delete</button>
+        <button data-action="edit" data-id="${user.id}" class="bg-blue-600 px-3 py-2">Edit</button>
+        <button data-action="delete" data-id="${user.id}" class="bg-red-600 px-3 py-2">Delete</button>
       </td>
     `;
 
@@ -106,7 +106,7 @@ function openCreateUserModal() {
 
 function openEditUserModal(user) {
   userModalTitle.textContent = 'Edit User';
-  userIdInput.value = user.userId;
+  userIdInput.value = user.id;
   userNameInput.value = user.name;
   userEmailInput.value = user.email;
   userPasswordInput.value = user.password;
@@ -150,7 +150,7 @@ async function refreshUsers() {
 async function getNextUserId() {
   const users = await getJson('/users', {}, true);
   return (
-    Math.max(...users.map((u) => Number(u.userId) || 0), 0) + 1
+    Math.max(...users.map((u) => Number(u.id) || 0), 0) + 1
   );
 }
 
@@ -169,7 +169,7 @@ async function handleUserFormSubmit(e) {
   try {
     const existing = await getJson('/users', { email }, true);
     const conflict = existing.find(
-      (u) => String(u.userId) !== String(id)
+      (u) => String(u.id) !== String(id)
     );
 
     if (conflict) {
@@ -190,7 +190,7 @@ async function handleUserFormSubmit(e) {
     } else {
       const newId = await getNextUserId();
       await postJson('/users', {
-        userId: newId,
+        // id: newId,
         name,
         email,
         password,
@@ -210,9 +210,10 @@ async function handleUserTableClick(e) {
   const btn = e.target.closest('button[data-action]');
   if (!btn) return;
 
-  const id = btn.dataset.userId;
+  const id = btn.dataset.id;
+  debugger;
   const user = allUsers.find(
-    (u) => String(u.userId) === id
+    (u) => String(u.id) === id
   );
 
   if (!user) return showAdminMessage('User not found', 'error');
@@ -221,7 +222,7 @@ async function handleUserTableClick(e) {
     return openEditUserModal(user);
   }
 
-  if (id == authenticatedUser.userId) {
+  if (id == authenticatedUser.id) {
     return showAdminMessage(
       'Cannot delete yourself',
       'error'
@@ -231,7 +232,7 @@ async function handleUserTableClick(e) {
   if (!confirm(`Delete ${user.name}?`)) return;
 
   try {
-    await deleteJson(`/users/${id}`);
+    await deleteJson(`/users/${id}`); //fix
     showAdminMessage('User deleted', 'success');
     refreshUsers();
   } catch (err) {

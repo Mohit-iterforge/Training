@@ -115,7 +115,7 @@ function validateRegistrationInput(name, email, password, role) {
  */
 async function getNextUserId() {
   const users = await getJson('/users');
-  const maxUserId = users.reduce((maximum, user) => Math.max(maximum, user.userId), 0);
+  const maxUserId = users.reduce((maximum, user) => Math.max(maximum, user.id), 0);
   return maxUserId + 1;
 }
 
@@ -184,10 +184,10 @@ async function handleRegisterFormSubmit(event) {
       return;
     }
 
-    const userId = await getNextUserId();
+    const id = await getNextUserId();
 
     const createdUser = await postJson('/users', {
-      userId,
+      id,
       name,
       email,
       password,

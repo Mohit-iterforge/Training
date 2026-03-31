@@ -82,11 +82,11 @@ function getStatusLabel(status) {
 /**
  * Returns the user name for a given user ID.
  *
- * @param {number} userId - Assigned user ID.
+ * @param {number} id - Assigned user ID.
  * @returns {string} User name or fallback text.
  */
-function getUserNameById(userId) {
-  const matchedUser = allUsers.find((user) => Number(user.userId) === Number(userId));
+function getUserNameById(id) {
+  const matchedUser = allUsers.find((user) => Number(user.id) === Number(id));
   return matchedUser ? matchedUser.name : 'Unassigned';
 }
 
@@ -269,8 +269,8 @@ function populateUserOptions() {
   const modalOptions = ['<option value="">Select user</option>'];
 
   allUsers.forEach((user) => {
-    filterOptions.push(`<option value="${user.userId}">${user.name}</option>`);
-    modalOptions.push(`<option value="${user.userId}">${user.name}</option>`);
+    filterOptions.push(`<option value="${user.id}">${user.name}</option>`);
+    modalOptions.push(`<option value="${user.id}">${user.name}</option>`);
   });
 
   assignedUserFilter.innerHTML = filterOptions.join('');
