@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "userId": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "password": "Admin@123",
-      "role": "Admin"
-    },
-    {
       "userId": 2,
       "name": "Jane Smith",
       "email": "jane.smith@example.com",
@@ -54,28 +47,27 @@
       "id": 7
     },
     {
-      "userId": 8,
-      "name": "register",
-      "email": "Register@gmail.com",
-      "password": "Password1!",
-      "role": "User",
-      "id": 8
-    },
-    {
-      "userId": 9,
-      "name": "dummy user",
-      "email": "dummy2@gmail.com",
-      "password": "Password@123",
-      "role": "User",
-      "id": 9
-    },
-    {
       "userId": 10,
+      "name": "dummy1",
+      "email": "dummy3@gmail.com",
+      "password": "Mohit@123",
+      "role": "Admin",
+      "id": 10
+    },
+    {
+      "userId": 11,
+      "name": "test1",
+      "email": "test@gmail.com",
+      "password": "Password@123",
+      "role": "Admin",
+      "id": 11
+    },
+    {
+      "userId": 12,
       "name": "testing",
       "email": "testing@gmail.com",
-      "password": "Password@13",
-      "role": "User",
-      "id": 10
+      "password": "Password@123",
+      "role": "Admin"
     }
   ],
   "tasks": [
