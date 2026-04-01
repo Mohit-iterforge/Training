@@ -211,7 +211,6 @@ async function handleUserTableClick(e) {
   if (!btn) return;
 
   const id = btn.dataset.id;
-  debugger;
   const user = allUsers.find(
     (u) => String(u.id) === id
   );
