@@ -6,6 +6,20 @@
       "email": "dummy2@gmail.com",
       "password": "Password@123",
       "role": "User"
+    },
+    {
+      "id": 2,
+      "name": "mohit",
+      "email": "mohit@gmail.com",
+      "password": "Password@123",
+      "role": "Admin"
+    },
+    {
+      "name": "enlknelk",
+      "email": "lknqlknlk@gmail.com",
+      "password": "Password@123",
+      "role": "Admin",
+      "id": 3
     }
   ],
   "tasks": [
