@@ -49,22 +49,22 @@ function showAdminMessage(message, type) {
   }, 2500);
 }
 
-function getFilteredUsers() {
-  const search = userSearchInput.value.trim().toLowerCase();
-  const role = roleFilter.value;
+// function getFilteredUsers() {
+//   const search = userSearchInput.value.trim().toLowerCase();
+//   const role = roleFilter.value;
 
-  return allUsers.filter((user) => {
-    return (
-      (!search ||
-        user.name.toLowerCase().includes(search) ||
-        user.email.toLowerCase().includes(search)) &&
-      (!role || user.role === role)
-    );
-  });
-}
+//   return allUsers.filter((user) => {
+//     return (
+//       (!search ||
+//         user.name.toLowerCase().includes(search) ||
+//         user.email.toLowerCase().includes(search)) &&
+//       (!role || user.role === role)
+//     );
+//   });
+// }
 
 function renderUsers() {
-  const users = getFilteredUsers();
+  const users = allUsers;
   userTableBody.innerHTML = '';
   userCount.textContent = users.length;
 
@@ -139,7 +139,20 @@ function validateUserInput(name, email, password, role) {
 
 /* api's */
 async function loadUsers() {
-  allUsers = await getJson('/users', {}, true);
+  const search = userSearchInput.value.trim();
+  const role = roleFilter.value;
+
+  const queryParams = {};
+
+  if (search) {
+    queryParams.q = search;
+  }
+
+  if (role) {
+    queryParams.role = role;
+  }
+
+  allUsers = await getJson('/users', queryParams, true);
 }
 
 async function refreshUsers() {
@@ -254,8 +267,13 @@ function bindEvents() {
   };
 
   userForm.onsubmit = handleUserFormSubmit;
-  userSearchInput.oninput = renderUsers;
-  roleFilter.onchange = renderUsers;
+  userSearchInput.oninput = async () => {
+    await refreshUsers();
+  };
+
+  roleFilter.onchange = async () => {
+    await refreshUsers();
+  };
   userTableBody.onclick = handleUserTableClick;
 }
 

@@ -215,30 +215,30 @@ function renderTasks(tasks) {
  *
  * @returns {Array<Record<string, unknown>>} Filtered task list.
  */
-function getFilteredTasks() {
-  const selectedProjectId = projectFilter.value;
-  const selectedAssignedUser = assignedUserFilter.value;
-  const selectedStatus = statusFilter.value;
-  const searchKeyword = taskSearchInput.value.trim().toLowerCase();
+// function getFilteredTasks() {
+//   const selectedProjectId = projectFilter.value;
+//   const selectedAssignedUser = assignedUserFilter.value;
+//   const selectedStatus = statusFilter.value;
+//   const searchKeyword = taskSearchInput.value.trim().toLowerCase();
 
-  return allTasks.filter((task) => {
-    const matchesProject = !selectedProjectId || Number(task.projectId) === Number(selectedProjectId);
-    const matchesAssignedUser = !selectedAssignedUser || Number(task.assignedTo) === Number(selectedAssignedUser);
-    const matchesStatus = !selectedStatus || task.status === selectedStatus;
-    const matchesSearch = !searchKeyword || task.title.toLowerCase().includes(searchKeyword);
+//   return allTasks.filter((task) => {
+//     const matchesProject = !selectedProjectId || Number(task.projectId) === Number(selectedProjectId);
+//     const matchesAssignedUser = !selectedAssignedUser || Number(task.assignedTo) === Number(selectedAssignedUser);
+//     const matchesStatus = !selectedStatus || task.status === selectedStatus;
+//     const matchesSearch = !searchKeyword || task.title.toLowerCase().includes(searchKeyword);
 
-    return matchesProject && matchesAssignedUser && matchesStatus && matchesSearch;
-  });
-}
+//     return matchesProject && matchesAssignedUser && matchesStatus && matchesSearch;
+//   });
+// }
 
 /**
  * Re-renders the board using current filter values.
  *
  * @returns {void}
  */
-function applyFiltersAndRenderBoard() {
-  const filteredTasks = getFilteredTasks();
-  renderTasks(filteredTasks);
+async function applyFiltersAndRenderBoard() {
+  await loadBoardData();
+  renderTasks(allTasks);
 }
 
 /**
@@ -338,10 +338,33 @@ async function getNextTaskId() {
  * @returns {Promise<void>}
  */
 async function loadBoardData() {
+  const selectedProjectId = projectFilter.value;
+  const selectedAssignedUser = assignedUserFilter.value;
+  const selectedStatus = statusFilter.value;
+  const searchKeyword = taskSearchInput.value.trim();
+
+  const queryParams = {};
+
+  if (selectedProjectId) {
+    queryParams.projectId = selectedProjectId;
+  }
+
+  if (selectedAssignedUser) {
+    queryParams.assignedTo = selectedAssignedUser;
+  }
+
+  if (selectedStatus) {
+    queryParams.status = selectedStatus;
+  }
+
+  if (searchKeyword) {
+    queryParams.q = searchKeyword; // full-text search
+  }
+
   const [users, projects, tasks] = await Promise.all([
     getJson('/users'),
     getJson('/projects'),
-    getJson('/tasks', {}, true)
+    getJson('/tasks', queryParams, true)
   ]);
 
   allUsers = users;
@@ -522,10 +545,21 @@ function bindBoardEventListeners() {
 
   taskForm.addEventListener('submit', handleTaskFormSubmit);
 
-  projectFilter.addEventListener('change', applyFiltersAndRenderBoard);
-  assignedUserFilter.addEventListener('change', applyFiltersAndRenderBoard);
-  statusFilter.addEventListener('change', applyFiltersAndRenderBoard);
-  taskSearchInput.addEventListener('input', applyFiltersAndRenderBoard);
+  projectFilter.addEventListener('change', async () => {
+    await applyFiltersAndRenderBoard();
+  });
+
+  assignedUserFilter.addEventListener('change', async () => {
+    await applyFiltersAndRenderBoard();
+  });
+
+  statusFilter.addEventListener('change', async () => {
+    await applyFiltersAndRenderBoard();
+  });
+
+  taskSearchInput.addEventListener('input', async () => {
+    await applyFiltersAndRenderBoard();
+  });
 
   todoColumn.addEventListener('click', handleBoardClick);
   inProgressColumn.addEventListener('click', handleBoardClick);
